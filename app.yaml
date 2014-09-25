@@ -1,0 +1,34 @@
+application: rrefsolver
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /
+  script: ./file/index.html
+
+- url: /showresult
+  script: ./file/1.php
+
+- url: /showsteps
+  script: ./file/2.php
+
+- url: /clone
+  script: ./file/clone.html
+
+- url: /error
+  script: ./file/error.html
+
+- url: /step
+  script: ./file/2.php
+
+- url : /alpha
+  script: ./file/3.php
+
+
+- url: /(.*\.(gif|png|jpg|ico|bmp|css|js|otf|eot|svg|ttf|woff))
+  static_files: file/\1
+  upload: file/(.*\.(gif|png|jpg|ico|bmp|css|js|otf|eot|svg|ttf|woff))  
+
+- url: /.*
+  script: ./file/404.html
